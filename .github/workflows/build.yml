@@ -14,7 +14,8 @@ jobs:
           arduino-cli core install arduino:renesas_uno
       - name: Compile
         run: arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi --output-dir build ./MySketch
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: firmware-bin
           path: build/*.bin
+          archive: false
