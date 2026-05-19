@@ -1,0 +1,20 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-arduino-cli@v2
+      - name: Install board
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install arduino:renesas_uno
+      - name: Compile
+        run: arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi --output-dir build MySketch
+      - uses: actions/upload-artifact@v4
+        with:
+          name: firmware-bin
+          path: build/*.bin
