@@ -1,8 +1,8 @@
 void setup() {
-     Serial1.begin(115200); // Initialize SerialNina
+     Serial.begin(115200); // Initialize SerialNina
     }
    
     void loop() {
-      Serial1.println("FLASHED");
+      Serial.println("FUCKTHEMALLMOTHERFUCKERS");
       delay(1000);
     }
